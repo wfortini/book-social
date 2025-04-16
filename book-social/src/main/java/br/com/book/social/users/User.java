@@ -1,5 +1,7 @@
 package br.com.book.social.users;
 
+import br.com.book.social.book.Book;
+import br.com.book.social.history.BookTransactionHistory;
 import br.com.book.social.role.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -43,6 +45,11 @@ public class User implements UserDetails, Principal {
 
     @ManyToMany(fetch = EAGER)
     private List<Role> roles;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Book> books;
+    @OneToMany(mappedBy = "user")
+    private List<BookTransactionHistory> histories;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
