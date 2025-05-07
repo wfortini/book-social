@@ -1,5 +1,6 @@
 package br.com.book.social.book;
 
+import br.com.book.social.file.FileUtils;
 import br.com.book.social.history.BookTransactionHistory;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +30,7 @@ public class BookMapper {
                 .archived(book.isArchived())
                 .shareable(book.isShareable())
                 // .owner(book.getOwner().fullName())
-                //.cover(FileUtils.readFileFromLocation(book.getBookCover()))
+                .cover(FileUtils.readFileFromLocation(book.getBookCover()))
                 .build();
     }
 
