@@ -161,7 +161,7 @@ public class BookService {
         }
 
         BookTransactionHistory bookTransactionHistory = BookTransactionHistory.builder()
-                .user((User)connectedUser.getPrincipal())
+                .userId((connectedUser.getName()))
                 .book(book)
                 .returned(false)
                 .returnApproved(false)
