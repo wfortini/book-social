@@ -27,6 +27,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AuthenticationService {
 
+/*
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
@@ -132,4 +133,6 @@ public class AuthenticationService {
         savedToken.setValidatedAt(LocalDateTime.now());
         tokenRepository.save(savedToken);
     }
+
+ */
 }

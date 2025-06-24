@@ -21,6 +21,7 @@ import java.time.LocalDateTime;
 @Tag(name = "Authentication")
 public class AuthenticationController {
 
+    /*
     private final AuthenticationService service;
 
     @PostMapping("/register")
@@ -42,5 +43,7 @@ public class AuthenticationController {
     ) throws MessagingException {
         service.activateAccount(token);
     }
+
+     */
 
 }

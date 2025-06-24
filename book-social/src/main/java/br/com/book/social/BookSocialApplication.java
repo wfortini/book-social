@@ -18,6 +18,7 @@ public class BookSocialApplication {
 		SpringApplication.run(BookSocialApplication.class, args);
 	}
 
+	/*
 	@Bean
 	public CommandLineRunner runner(RoleRepository roleRepository){
 		return args -> {
@@ -26,5 +27,7 @@ public class BookSocialApplication {
 			}
 		};
 	}
+
+	 */
 
 }

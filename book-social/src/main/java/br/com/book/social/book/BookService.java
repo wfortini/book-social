@@ -31,9 +31,9 @@ public class BookService {
     private final FileStorageService fileStorageService;
 
     public Integer save(BookRequest request, Authentication connectedUser) {
-         User user = ((User) connectedUser.getPrincipal());
+         //User user = ((User) connectedUser.getPrincipal());
         Book book = bookMapper.toBook(request);
-        book.setOwner(user);
+        //book.setOwner(user);
         return bookRepository.save(book).getId();
     }
 
@@ -44,7 +44,7 @@ public class BookService {
     }
 
     public PageResponse<BookResponse> findAllBooks(int page, int size, Authentication connectedUser) {
-         User user = ((User) connectedUser.getPrincipal());
+         //User user = ((User) connectedUser.getPrincipal());
         Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
         Page<Book> books = bookRepository.findAllDisplayableBooks(pageable, connectedUser.getName());
         List<BookResponse> booksResponse = books.stream()
@@ -62,7 +62,7 @@ public class BookService {
     }
 
     public PageResponse<BookResponse> findAllBooksByOwner(int page, int size, Authentication connectedUser) {
-         User user = ((User) connectedUser.getPrincipal());
+         //User user = ((User) connectedUser.getPrincipal());
         Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
         Page<Book> books = bookRepository.findAll(withOwnerId(connectedUser.getName()), pageable);
         List<BookResponse> booksResponse = books.stream()
@@ -118,7 +118,7 @@ public class BookService {
     public Integer updateShareableStatus(Integer bookId, Authentication connectedUser) {
         Book book = bookRepository.findById(bookId)
                 .orElseThrow(() -> new EntityNotFoundException("No book found with ID:: " + bookId));
-         User user = ((User) connectedUser.getPrincipal());
+         //User user = ((User) connectedUser.getPrincipal());
         if (!Objects.equals(book.getCreatedBy(), connectedUser.getName())) {
             throw new OperationNotPermittedException("You cannot update others books shareable status");
         }

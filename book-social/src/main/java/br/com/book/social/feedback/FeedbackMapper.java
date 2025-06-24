@@ -1,9 +1,11 @@
 package br.com.book.social.feedback;
 
 import br.com.book.social.book.Book;
+import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 
+@Service
 public class FeedbackMapper {
 
     public Feedback toFeedback(FeedbackRequest request) {
