@@ -7,6 +7,8 @@ import { MenuComponent } from './modules/book/components/menu/menu/menu.componen
 import { LoginComponent } from './pages/login/login/login.component';
 import { ActivateAccountComponent } from './pages/activate-account/activate-account/activate-account.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { BookCardComponent } from './modules/book-card/book-card.component';
+import { BookListComponent } from './modules/book/pages/book-list/book-list.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { RegisterComponent } from './pages/register/register.component';
     MenuComponent,
     LoginComponent,
     ActivateAccountComponent,
-    RegisterComponent
+    RegisterComponent,
+    BookCardComponent,
+    BookListComponent
   ],
   imports: [
     BrowserModule,
