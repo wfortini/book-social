@@ -9,6 +9,10 @@ import { ActivateAccountComponent } from './pages/activate-account/activate-acco
 import { RegisterComponent } from './pages/register/register.component';
 import { BookCardComponent } from './modules/book-card/book-card.component';
 import { BookListComponent } from './modules/book/pages/book-list/book-list.component';
+import { BorrowedBookListComponent } from './modules/book/pages/borrowed-book-list/borrowed-book-list.component';
+import { MainComponent } from './modules/book/pages/main/main.component';
+import { ManageBookComponent } from './modules/book/pages/manage-book/manage-book.component';
+import { MyBooksComponent } from './modules/book/pages/my-books/my-books.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { BookListComponent } from './modules/book/pages/book-list/book-list.comp
     ActivateAccountComponent,
     RegisterComponent,
     BookCardComponent,
-    BookListComponent
+    BookListComponent,
+    BorrowedBookListComponent,
+    MainComponent,
+    ManageBookComponent,
+    MyBooksComponent
   ],
   imports: [
     BrowserModule,
