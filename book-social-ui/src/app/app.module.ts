@@ -13,6 +13,7 @@ import { BorrowedBookListComponent } from './modules/book/pages/borrowed-book-li
 import { MainComponent } from './modules/book/pages/main/main.component';
 import { ManageBookComponent } from './modules/book/pages/manage-book/manage-book.component';
 import { MyBooksComponent } from './modules/book/pages/my-books/my-books.component';
+import { RaitingComponent } from './modules/book/raiting/raiting.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MyBooksComponent } from './modules/book/pages/my-books/my-books.compone
     BorrowedBookListComponent,
     MainComponent,
     ManageBookComponent,
-    MyBooksComponent
+    MyBooksComponent,
+    RaitingComponent
   ],
   imports: [
     BrowserModule,
