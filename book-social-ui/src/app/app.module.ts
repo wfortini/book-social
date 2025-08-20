@@ -14,6 +14,8 @@ import { MainComponent } from './modules/book/pages/main/main.component';
 import { ManageBookComponent } from './modules/book/pages/manage-book/manage-book.component';
 import { MyBooksComponent } from './modules/book/pages/my-books/my-books.component';
 import { RaitingComponent } from './modules/book/raiting/raiting.component';
+import { BookDetailsComponent } from './modules/book/pages/book-details/book-details.component';
+import { ReturnedBooksComponent } from './modules/book/pages/returned-books/returned-books.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { RaitingComponent } from './modules/book/raiting/raiting.component';
     MainComponent,
     ManageBookComponent,
     MyBooksComponent,
-    RaitingComponent
+    RaitingComponent,
+    BookDetailsComponent,
+    ReturnedBooksComponent
   ],
   imports: [
     BrowserModule,
