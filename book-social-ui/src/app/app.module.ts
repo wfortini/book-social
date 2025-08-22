@@ -1,44 +1,50 @@
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './modules/book/components/menu/menu/menu.component';
-import { LoginComponent } from './pages/login/login/login.component';
-import { ActivateAccountComponent } from './pages/activate-account/activate-account/activate-account.component';
+import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { BookCardComponent } from './modules/book-card/book-card.component';
-import { BookListComponent } from './modules/book/pages/book-list/book-list.component';
-import { BorrowedBookListComponent } from './modules/book/pages/borrowed-book-list/borrowed-book-list.component';
-import { MainComponent } from './modules/book/pages/main/main.component';
-import { ManageBookComponent } from './modules/book/pages/manage-book/manage-book.component';
-import { MyBooksComponent } from './modules/book/pages/my-books/my-books.component';
-import { RaitingComponent } from './modules/book/raiting/raiting.component';
-import { BookDetailsComponent } from './modules/book/pages/book-details/book-details.component';
-import { ReturnedBooksComponent } from './modules/book/pages/returned-books/returned-books.component';
+import {FormsModule} from '@angular/forms';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpTokenInterceptor} from './services/interceptor/http-token.interceptor';
+import { ActivateAccountComponent } from './pages/activate-account/activate-account.component';
+import {CodeInputModule} from 'angular-code-input';
+import {KeycloakService} from './services/keycloak/keycloak.service';
+
+export function kcFactory(kcService: KeycloakService) {
+  return () => kcService.init();
+}
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
     LoginComponent,
-    ActivateAccountComponent,
     RegisterComponent,
-    BookCardComponent,
-    BookListComponent,
-    BorrowedBookListComponent,
-    MainComponent,
-    ManageBookComponent,
-    MyBooksComponent,
-    RaitingComponent,
-    BookDetailsComponent,
-    ReturnedBooksComponent
+    ActivateAccountComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        CodeInputModule
+    ],
+  providers: [
+    HttpClient,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpTokenInterceptor,
+      multi: true
+    },
+    {
+      provide: APP_INITIALIZER,
+      deps: [KeycloakService],
+      useFactory: kcFactory,
+      multi: true
+    }
+
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
